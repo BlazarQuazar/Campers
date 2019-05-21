@@ -8,20 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Campers
+namespace Campers2
 {
-    public partial class LandingPage : Form
+    public partial class LogIn : Form
     {
         Users logInUsers = new Users();
         public static string user = string.Empty;
         public static bool isAdmin = false;
 
-        public LandingPage()
+        public LogIn()
         {
-            InitializeComponent();            
+            InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnLogin_Click(object sender, EventArgs e)
         {
             string iUsername = txtBoxUsername.Text;
             string iPassword = txtBoxPassword.Text;
@@ -30,39 +30,32 @@ namespace Campers
             {
                 if (logInUsers.PasswordMatch(iUsername, iPassword))
                 {
-                    user = iUsername;                    
+                    user = iUsername;
 
                     if (logInUsers.IsUserAdmin(iUsername))
                     {
-                        // launch admin page
-                        MainPage campers = new MainPage();
                         isAdmin = true;
-                        campers.Show();
-                          
                     }
                     else
                     {
-                        // lanch user page
-                        MainPage campers = new MainPage();
                         isAdmin = false;
-                        campers.Show();
                     }
+
+                    txtBoxUsername.Text = string.Empty;
+                    txtBoxPassword.Text = string.Empty;
+                    MainPage mainPage = new MainPage();
+                    mainPage.Show();
 
                 }
                 else
                 {
-                    MessageBox.Show("Incorrect password!");
+                    MessageBox.Show("Incorrect password");
                 }
             }
             else
             {
-                MessageBox.Show("Username not recognised!");
+                MessageBox.Show("Username not recognised");
             }
-        }
-
-        private void LandingPage_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -1,0 +1,5 @@
+user1	pass1 	false
+user2	pass2	false
+user3	pass3	false
+admin1	apass1	true
+admin2	apass2	true

@@ -4,45 +4,41 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-using System.Diagnostics;
 
-namespace Campers
+namespace Campers2
 {
-
-    
-    // Look up static classes & if methods can be shared
     class Users
     {
         private List<string[]> users = new List<string[]>();
 
-
         public Users()
         {
-            // load the users into local storage, rethink would be needed for large number of users
+            this.LoadUsers();
+        }
+
+        private void LoadUsers()
+        {
             string[] user = new string[3];
-                    
+
             try
             {
-                using (StreamReader sr = new StreamReader("Users.txt"))
-                    while (sr.Peek() >= 0)
+                using(StreamReader sr = new StreamReader("Users.txt"))
+                    while(sr.Peek() >= 0)
                     {
                         user = sr.ReadLine().Split('\t');
                         users.Add(user);
                     }
             }
-            catch (Exception e)
+            catch(Exception e)
             {
-                Console.WriteLine("Error");
                 Console.WriteLine(e.Message);
             }
-            // at this point users is full of lists that contain, user-password-admin(true/false)
-
         }
 
         public bool ContainsUsername(string iUser)
         {
             // search first column of each list
-            if(users.FirstOrDefault(array => array[0] == iUser) != null)
+            if (users.FirstOrDefault(array => array[0] == iUser) != null)
             {
                 return true;
             }
@@ -56,7 +52,6 @@ namespace Campers
         public bool PasswordMatch(string iUser, string iPassword)
         {
             int index = users.FindIndex(array => array[0] == iUser);
-            Debug.Write(users[index][1]);
 
             if (users[index][1].Trim().Equals(iPassword))
             {
@@ -72,7 +67,7 @@ namespace Campers
         {
             int index = users.FindIndex(array => array[0] == iUser);
 
-            if (users[index][2] == "true")
+            if (users[index][2].Equals("true"))
             {
                 return true;
             }
@@ -82,6 +77,16 @@ namespace Campers
             }
         }
 
-        
+        public string[] ReturnAllUsers()
+        {
+            string[] oUsers = new string[users.Count()];
+
+            for(int i =0; i< users.Count(); i++)
+            {
+                oUsers[i] = users[i][0];
+            }
+
+            return oUsers;
+        }
     }
 }

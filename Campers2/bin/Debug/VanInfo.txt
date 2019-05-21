@@ -1,0 +1,6 @@
+van1	reg1	1
+van2	reg2	2
+van3	reg3	2
+van4	reg4	4
+van5	reg5	5
+van6	reg6	3

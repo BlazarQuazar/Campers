@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1F5CBE5C-CFB0-4C83-A242-2A6576F54082}</ProjectGuid>
+    <ProjectGuid>{865EA957-8096-43B3-A05E-86ACF13578F2}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Campers</RootNamespace>
-    <AssemblyName>Campers</AssemblyName>
+    <RootNamespace>Campers2</RootNamespace>
+    <AssemblyName>Campers2</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -47,28 +47,34 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bookings.cs" />
+    <Compile Include="Fleet.cs" />
+    <Compile Include="LogIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogIn.Designer.cs">
+      <DependentUpon>LogIn.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainPage.Designer.cs">
       <DependentUpon>MainPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="CamperVans.cs" />
-    <Compile Include="LandingPage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LandingPage.Designer.cs">
-      <DependentUpon>LandingPage.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Users.cs" />
     <Compile Include="Van.cs" />
+    <Compile Include="VanDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VanDetails.Designer.cs">
+      <DependentUpon>VanDetails.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="LogIn.resx">
+      <DependentUpon>LogIn.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainPage.resx">
       <DependentUpon>MainPage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LandingPage.resx">
-      <DependentUpon>LandingPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -79,6 +85,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="VanDetails.resx">
+      <DependentUpon>VanDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

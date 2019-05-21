@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Campers.Properties
+namespace Campers2.Properties
 {
 
 
